@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Head from "next/head";
 import Footer from "./Footer";
 import Header from "./Header";
+import Link from "next/link";
 
 export default function Layout({ title, children, isMobile }) {
 	const [showMenu, setShowMenu] = useState(false);
@@ -24,24 +25,32 @@ export default function Layout({ title, children, isMobile }) {
 					}
 				>
 					<div>
-						<span className="text-4xl font-extrabold hover:underline hover:cursor-pointer">
-							About
-						</span>
+						<Link href="/@me" passHref>
+							<span className="text-4xl font-extrabold hover:underline hover:cursor-pointer">
+								About
+							</span>
+						</Link>
 					</div>
 					<div>
-						<span className="text-4xl font-extrabold hover:underline hover:cursor-pointer">
-							Projects
-						</span>
+						<Link href="/projects" passHref>
+							<span className="text-4xl font-extrabold hover:underline hover:cursor-pointer">
+								Projects
+							</span>
+						</Link>
 					</div>
 					<div>
-						<span className="text-4xl font-extrabold hover:underline hover:cursor-pointer">
-							Blog
-						</span>
+						<Link passHref href="/blog">
+							<span className="text-4xl font-extrabold hover:underline hover:cursor-pointer">
+								Blog
+							</span>
+						</Link>
 					</div>
 				</section>
 			) : null}
-			{showMenu ? null : children}
-			<Footer showMenu={showMenu} />
+			{showMenu ? null : (
+				<section className="px-6 md:px-16">{children}</section>
+			)}
+			{/* <Footer showMenu={showMenu} /> */}
 		</>
 	);
 }

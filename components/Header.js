@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 export default function Header({ showMenu, showMenuNavigation }) {
 	const router = useRouter();
 	const navLinkTo = (text) => {
-		router.push(text);
+		return router.push(text);
 	};
 
 	return (

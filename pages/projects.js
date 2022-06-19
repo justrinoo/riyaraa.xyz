@@ -1,131 +1,118 @@
 /* eslint-disable @next/next/no-img-element */
+import React, { useState } from "react";
 import Layout from "components/Layout";
-import React from "react";
+import ListSkills from "components/ListSkills";
 import Image from "next/image";
 
 export default function Projects() {
+	const [showPortfolio, setShowPortfolio] = useState("zet-wallet");
+	const actionShowPortfolios = (myPortfolio) => {
+		setShowPortfolio(myPortfolio);
+		return window.innerWidth <= 375
+			? (window.location.href = "https://github.com/riyaraa")
+			: setShowPortfolio(myPortfolio);
+	};
+
+	const showRedirectPortfolio = (redirectLink) => {
+		return (window.location.href = redirectLink);
+	};
+	const showRedirectGithub = (redirectLink) => {
+		return (window.location.href = redirectLink);
+	};
+
 	return (
-		<Layout>
-			<section className="px-16 mt-10 min-h-screen">
-				<h1 className="text-4xl text-center font-bold">Projects</h1>
-				<span className="text-center block mt-4 font-semibold">
-					#Learning By Doing Trial And Error.
-				</span>
-
-				<h2 className="text-2xl mt-10 text-center">
-					Have a look on github first, because it{"'"}s in the works
-				</h2>
-
-				<a
-					href="https://github.com/riyaraa"
-					className="text-center mt-4 block text-blue-400 hover:underline font-semibold"
-				>
-					Read More
-				</a>
-				{/* <section className="flex flex-row flex-wrap">
-					<section className="w-2/4 mt-5 rounded-md">
-						<img
-							src="/images/Dashboard.png"
-							width={500}
-							className="mx-auto py-3"
-							height={300}
-							alt="Portfolio"
-						/>
-						<h2 className="text-xl text-center font-bold mt-3">Z-Wallet</h2>
-						<p className="mt-3 text-justify text-sm px-4 text-neutral-600">
-							Z-Wallet is a top up money site where you can make transactions
-							with everyone on z-wallet, the display on the z-wallet website is
-							very easy to reach.
-						</p>
-						<div className="mx-auto mb-4 transition duration-100 ease-in text-center mt-5">
-							<button className="mx-3 bg-blue-400 text-white font-bold px-6 py-2 rounded-md">
-								Visit
-							</button>
-							<button className="mx-3 bg-dark text-white font-bold px-6 py-2 rounded-md">
-								Github
-							</button>
+		<Layout title={"Projects"} isMobile={false}>
+			<section className="block md:flex justify-between mt-3 mb-3">
+				<section className="w-full md:w-2/3">
+					<ListSkills
+						title="Zet-Wallet"
+						role="Fullstack Web Developer"
+						showPortfolio={showPortfolio}
+						descriptionStack="Nodejs, NextJs, Redux, Redux Persist, Bootstrap Css, Midtrans"
+						actionShowPortfolios={() => actionShowPortfolios("zet-wallet")}
+					/>
+					<ListSkills
+						title="Paytix"
+						role="Fullstack Web Developer"
+						descriptionStack="Nodejs, ReactJs, Redux, Redux Persist, Bootstrap Css, Midtrans"
+						actionShowPortfolios={() => actionShowPortfolios("paytix")}
+					/>
+					<ListSkills
+						title="Clover Hire"
+						role="Fullstack Web Developer"
+						descriptionStack="Nodejs, NextJs, Redux, Redux Persist, Bootstrap Css, Midtrans"
+						actionShowPortfolios={() => actionShowPortfolios("clover-hire")}
+					/>
+					<ListSkills
+						title="GiatinAja"
+						role="Frontend Web Developer"
+						descriptionStack="Nodejs, ReactJs, TailwindCss"
+						actionShowPortfolios={() => actionShowPortfolios("giatinaja")}
+					/>
+					{/* <ListSkills title="Zet-Wallet" role="Fullstack Developer" /> */}
+				</section>
+				<section className="hidden md:block ml-10 mt-1">
+					<img
+						className="object-contain h-96 w-96"
+						src={
+							showPortfolio === "zet-wallet"
+								? "/images/z-wallet/Dashboard.png"
+								: showPortfolio === "paytix"
+								? "/images/paytix-web/Home.png"
+								: showPortfolio === "clover-hire"
+								? "/images/clover-hire/Home.png"
+								: showPortfolio === "giatinaja" && "/images/GiatinAJa/Home.png"
+						}
+						alt="Image"
+					/>
+					<div className="flex items-center justify-around font-semibold">
+						<div
+							className="flex items-center flex-col-reverse cursor-pointer"
+							onClick={() =>
+								showRedirectPortfolio(
+									showPortfolio === "zet-wallet"
+										? "https://zet-wallet.vercel.app"
+										: showPortfolio === "paytix"
+										? "https://tickitz.vercel.app"
+										: showPortfolio === "clover-hire"
+										? "https://clover-hire.netlify.app"
+										: showPortfolio === "giatinaja" && "https://giatinaja.com"
+								)
+							}
+						>
+							<span className="cursor-pointer">View More</span>
+							<Image
+								src="/icons/globe.svg"
+								width={20}
+								height={20}
+								alt="View More"
+							/>
 						</div>
-					</section>
-					<section className="w-2/4 mt-5 rounded-md">
-						<img
-							src="/images/Dashboard.png"
-							width={500}
-							className="mx-auto py-3"
-							height={300}
-							alt="Portfolio"
-						/>
-						<h2 className="text-xl text-center font-bold mt-3">Z-Wallet</h2>
-						<p className="mt-3 text-justify text-sm px-4 text-neutral-600">
-							Z-Wallet is a top up money site where you can make transactions
-							with everyone on z-wallet, the display on the z-wallet website is
-							very easy to reach.
-						</p>
-						<div className="mx-auto mb-4 transition duration-100 ease-in text-center mt-5">
-							<button className="mx-3 bg-blue-400 text-white font-bold px-6 py-2 rounded-md">
-								Visit
-							</button>
-							<button className="mx-3 bg-dark text-white font-bold px-6 py-2 rounded-md">
-								Github
-							</button>
+						<div
+							className="flex items-center flex-col-reverse cursor-pointer"
+							onClick={() =>
+								showRedirectGithub(
+									showPortfolio === "zet-wallet"
+										? "https://github.com/riyaraa/Z-Wallet"
+										: showPortfolio === "paytix"
+										? "https://github.com/riyaraa/Tickitz-Frontend"
+										: showPortfolio === "clover-hire"
+										? "https://github.com/AhmadZaky19/clover-frontend"
+										: showPortfolio === "giatinaja" &&
+										  "https://github.com/giatinaja"
+								)
+							}
+						>
+							<span className="cursor-pointer">Github</span>
+							<Image
+								src="/icons/github.svg"
+								width={20}
+								height={20}
+								alt="View More"
+							/>
 						</div>
-					</section>
-					<section className="w-2/4 mt-5 rounded-md">
-						<img
-							src="/images/Dashboard.png"
-							width={500}
-							className="mx-auto py-3"
-							height={300}
-							alt="Portfolio"
-						/>
-						<h2 className="text-xl text-center font-bold mt-3">Z-Wallet</h2>
-						<p className="mt-3 text-justify text-sm px-4 text-neutral-600">
-							Z-Wallet is a top up money site where you can make transactions
-							with everyone on z-wallet, the display on the z-wallet website is
-							very easy to reach.
-						</p>
-						<div className="mx-auto mb-4 transition duration-100 ease-in text-center mt-5">
-							<button className="mx-3 bg-blue-400 text-white font-bold px-6 py-2 rounded-md">
-								Visit
-							</button>
-							<button className="mx-3 bg-dark text-white font-bold px-6 py-2 rounded-md">
-								Github
-							</button>
-						</div>
-					</section>
-
-					{/* <section className="p-2 rounded border-dotted border-4 flex flex-row w-11/12 mx-auto">
-						<div className="w-full h-80 bg-green-400 rounded example-image-projects"></div>
-						<div className="flex flex-col justify-between">
-							<div className="mx-5 mt-4">
-								<h1 className="text-2xl font-bold text-dark">This My Title</h1>
-								<p className="text-gray mt-2">
-									Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit,
-									vitae mollitia. Perspiciatis earum enim maxime quaerat rerum
-									architecto, ullam necessitatibus nesciunt mollitia odit
-									adipisci nulla libero id saepe, magnam sed!
-								</p>
-								<div className="flex">
-									<p className="mt-5">Visit</p>
-									<p className="mt-5">Github</p>
-								</div>
-							</div>
-							<div className="mx-5 flex">
-								<div className="bg-red-900 rounded-full h-auto mx-1 w-auto p-1 text-sm text-white">
-									ReactJs
-								</div>
-								<div className="bg-red-900 rounded-full h-auto mx-1 w-auto p-1 text-sm text-white">
-									ReactJs
-								</div>
-								<div className="bg-red-900 rounded-full h-auto mx-1 w-auto p-1 text-sm text-white">
-									ReactJs
-								</div>
-								<div className="bg-red-900 rounded-full h-auto mx-1 w-auto p-1 text-sm text-white">
-									ReactJs
-								</div>
-							</div>
-						</div>
-					</section> */}
-				{/* </section> */}
+					</div>
+				</section>
 			</section>
 		</Layout>
 	);
