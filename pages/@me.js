@@ -6,15 +6,16 @@ import Link from "next/link";
 export default function ThisMe() {
 	const [conditionHover, setConditionHover] = useState("");
 	const skills = [
-		"Javascript",
-		"Typescript",
-		"NodeJs",
-		"ReactJs",
-		"NextJs",
-		"ExpressJs",
-		"Mysql",
-		"Figma",
-		"Trello",
+		"Javascript - ",
+		"Typescript - ",
+		"NodeJs - ",
+		"ReactJs - ",
+		"NextJs - ",
+		"ExpressJs - ",
+		"Mysql - ",
+		"Figma - ",
+		"Trello - ",
+		"Jira",
 	];
 
 	return (
@@ -110,10 +111,11 @@ export default function ThisMe() {
 						</div>
 						<div className="mt-14">
 							<h2 className="font-bold">SKILLS</h2>
-							<h1 className="text-base md:text-xl mt-3 font-bold text-dark">
-								Javascript / Typescript / NodeJs / ReactJs / NextJs / Redux /
-								TailwindCss / BootstrapCss / Figma / Trello
-							</h1>
+							<div className="flex flex-row">
+								{skills.map((skill) => {
+									return <h1>{skill}</h1>;
+								})}
+							</div>
 						</div>
 					</section>
 				</section>

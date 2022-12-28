@@ -48,7 +48,7 @@ export default function Layout({ title, children, isMobile }) {
 				</section>
 			) : null}
 			{showMenu ? null : (
-				<section className="px-6 md:px-16">{children}</section>
+				<section className="px-4 md:px-16">{children}</section>
 			)}
 			{/* <Footer showMenu={showMenu} /> */}
 		</>
