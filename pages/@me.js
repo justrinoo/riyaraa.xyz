@@ -10,6 +10,9 @@ export default function ThisMe() {
 		"Typescript - ",
 		"NodeJs - ",
 		"ReactJs - ",
+		"Redux - ",
+		"Tailwind Css - ",
+		"Bootstrap Css - ",
 		"NextJs - ",
 		"ExpressJs - ",
 		"Mysql - ",
@@ -63,10 +66,10 @@ export default function ThisMe() {
 						</div>
 						<p className="font-bold mt-2">
 							I{"'"}m a software engineer as{" "}
-							<span className="border-b-2">Frontend Developer</span>{" "}
-							specializing in developing websites using javascript, and now I
-							{"'"}m currently learning about TypeScript & Golang, and I{"'"}m
-							also learning about UI/UX Designer.
+							<span className="border-b-2">Frontend Engineer</span> specializing
+							in developing websites using javascript, and now I{"'"}m currently
+							learning about TypeScript & Golang, and I{"'"}m also learning
+							about UI/UX Designer.
 						</p>
 					</section>
 				</section>
@@ -96,31 +99,47 @@ export default function ThisMe() {
 							<h2 className="font-bold">Educations</h2>
 							<div className="flex flex-col text-dark mt-3">
 								<div className="flex items-center">
-									<h3 className="font-bold text-base md:text-xl">
-										Arkademy Tech Academy — Fullstack Developer ( Sep 2021 - Dec
-										2021 )
+									<h3 className="font-bold text-base md:text-xl flex">
+										<a
+											href="https://goo.gl/maps/zYaTkwHWMDn5JvzB9"
+											target="_blank"
+											rel="noreferrer"
+										>
+											<span className="block mr-2 underline">
+												Arkademy Tech Academy{" "}
+											</span>
+										</a>{" "}
+										— Fullstack Developer ( Sep 2021 - Dec 2021 )
 									</h3>
 								</div>
 								<div className="flex items-center mt-5">
-									<h3 className="font-bold text-base md:text-xl">
-										SMK Jakarta Pusat 1 — Rekayasa Perangkat Lunak ( Juli 2018 -
-										Juli 2021 )
+									<h3 className="font-bold text-base md:text-xl flex">
+										<a
+											href="https://goo.gl/maps/MXhnc7i2KhGHuJFi8"
+											target="_blank"
+											rel="noreferrer"
+										>
+											<span className="block mr-2 underline">
+												Central Jakarta High School 1{" "}
+											</span>
+										</a>{" "}
+										— Software Engineering ( July 2018 - July 2021 )
 									</h3>
 								</div>
 							</div>
 						</div>
 						<div className="mt-14">
 							<h2 className="font-bold">SKILLS</h2>
-							<div className="flex flex-row">
-								{skills.map((skill) => {
-									return <h1>{skill}</h1>;
+							<div className="flex flex-wrap flex-row">
+								{skills.map((skill, idx) => {
+									return <h1 key={idx}>{skill}</h1>;
 								})}
 							</div>
 						</div>
 					</section>
 				</section>
 
-				<section className="mt-10 md:mt-20">
+				<section className="mt-10">
 					<h1 className="text-2xl font-bold">Contact</h1>
 					<span className="text-gray mt-2 text-sm">
 						I{"'"}m always open if you have any questions or collaborate,

@@ -86,23 +86,8 @@ export default function Projects() {
 		},
 	];
 
-	// const [showPortfolio, setShowPortfolio] = useState("zet-wallet");
-	// const actionShowPortfolios = (myPortfolio) => {
-	// 	setShowPortfolio(myPortfolio);
-	// 	return window.innerWidth <= 375
-	// 		? (window.location.href = "https://github.com/riyaraa")
-	// 		: setShowPortfolio(myPortfolio);
-	// };
-
-	// const showRedirectPortfolio = (redirectLink) => {
-	// 	return (window.location.href = redirectLink);
-	// };
-	// const showRedirectGithub = (redirectLink) => {
-	// 	return (window.location.href = redirectLink);
-	// };
-
 	return (
-		<Layout title={"Projects"} isMobile={false}>
+		<Layout title={"Projects"}>
 			<section>
 				<div className="text-center">
 					<h4 className="text-center mt-5 text-sm">Projects</h4>
@@ -113,9 +98,9 @@ export default function Projects() {
 				<span>2022</span>
 				<hr />
 				<section>
-					{projects.map((item, idx) => {
+					{projects.map((item) => {
 						return Object.values(item).map((value) => {
-							return value.map((result) => {
+							return value.map((result, idx) => {
 								return (
 									<div key={idx}>
 										<div className="md:grid grid-cols-4 gap-4 mt-5 mb-5 md:hover:translate-x-8 hover:translate-x-0 hover:transition">

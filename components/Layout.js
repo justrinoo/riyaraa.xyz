@@ -4,7 +4,7 @@ import Footer from "./Footer";
 import Header from "./Header";
 import Link from "next/link";
 
-export default function Layout({ title, children, isMobile }) {
+export default function Layout({ title, children }) {
 	const [showMenu, setShowMenu] = useState(false);
 	const showMenuNavigation = () => {
 		return showMenu === false ? setShowMenu(true) : setShowMenu(false);

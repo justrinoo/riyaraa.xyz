@@ -8,7 +8,7 @@ export default function Home() {
 	};
 
 	return (
-		<Layout title="Me" isMobile={true}>
+		<Layout title="Me">
 			<main className="flex">
 				<section className="py-14 md:mt-10 mt-0">
 					<h1 className="w-auto md:w-2/3 text-left md:text-center mx-auto text-2xl md:text-6xl font-bold text-dark">
